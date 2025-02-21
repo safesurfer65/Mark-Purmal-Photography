@@ -9,6 +9,11 @@ const raleway = Raleway({ subsets: ['latin'], variable: '--font-raleway' })
 export const metadata: Metadata = {
   title: 'Mark Purmal Photography | 360° Virtual Tours & Drone Photography',
   description: 'Professional photographer specializing in 360° virtual tours, drone photography/videography, and FPV flythrough videos.',
+  icons: {
+    icon: '/images/mp-icon.png',
+    shortcut: '/images/mp-icon.png',
+    apple: '/images/mp-icon.png',
+  },
 }
 
 export default function RootLayout({

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useState } from 'react'
+import { LampContainer } from '@/components/ui/lamp'
 
 export default function Home() {
   const [ref, inView] = useInView({
@@ -34,42 +35,28 @@ export default function Home() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-dark z-10" />
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        
-        <div className="container mx-auto px-4 relative z-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
+        <LampContainer>
+          <motion.h1
+            initial={{ opacity: 0.5, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
           >
-            <h1 className="font-display text-5xl md:text-7xl font-bold mb-6">
-              Capturing Reality in
-              <span className="text-secondary"> 360°</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-              Professional virtual tours, drone photography, and FPV videos that bring your space to life
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a href="#portfolio" className="btn btn-primary">
-                View Portfolio
-              </a>
-              <a href="#contact" className="btn btn-outline">
-                Get in Touch
-              </a>
-            </div>
-          </motion.div>
-        </div>
+            Capturing Reality in <br /> <span className="text-secondary">360°</span>
+          </motion.h1>
+          <div className="flex flex-wrap gap-4 justify-center mt-8">
+            <a href="#portfolio" className="btn btn-primary">
+              View Portfolio
+            </a>
+            <a href="#contact" className="btn btn-outline">
+              Get in Touch
+            </a>
+          </div>
+        </LampContainer>
       </section>
 
       {/* Services Section */}
