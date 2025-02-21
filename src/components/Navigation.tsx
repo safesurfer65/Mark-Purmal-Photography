@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -28,12 +29,20 @@ export default function Navigation() {
     <>
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'py-4 bg-dark/90 backdrop-blur-sm' : 'py-6 bg-transparent'
+          isScrolled ? 'py-2 bg-dark/90 backdrop-blur-sm' : 'py-4 bg-transparent'
         }`}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <a href="#" className="text-2xl font-display font-bold">
-            Mark Purmal
+          <a href="#" className="flex items-center">
+            <div className="relative w-48 h-28">
+              <Image
+                src="/images/mp-logo.png"
+                alt="Mark Purmal Photography"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </a>
 
           {/* Desktop Navigation */}
